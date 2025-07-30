@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour, IDamageable
 {
     [Header("Atributos")]
     public float maxHealth = 100f;
@@ -17,6 +18,12 @@ public class PlayerManager : MonoBehaviour
     private Vector2 moveInput;
     private bool jumpPressed = false;
 
+    // Evento para avisar cuando el jugador recibe daño
+    public static event Action OnPlayerDamaged;
+
+    // Evento para cuando el jugador muere
+    public static event Action OnPlayerDead;
+
     private void Start()
     {
         currentHealth = maxHealth;
@@ -30,13 +37,11 @@ public class PlayerManager : MonoBehaviour
         Jump();
     }
 
-    // Callback para el evento Move del Input System
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
     }
 
-    // Callback para el evento Jump del Input System
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -57,7 +62,6 @@ public class PlayerManager : MonoBehaviour
         jumpPressed = false;
     }
 
-    // Detección de suelo usando colisiones
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -74,28 +78,30 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    // Método virtual para lanzar hechizos, para ser sobrescrito en clases hijas
-    protected virtual void CastSpell()
-    {
-        // Implementar en clases hijas
-    }
-
-    // Método para recibir daño
-    public virtual void TakeDamage(float amount)
+    // Método para recibir daño, viene de la interfaz IDamageable
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        OnPlayerDamaged?.Invoke(); // Dispara el evento
+
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            // Lógica de muerte aquí
+            OnPlayerDead?.Invoke(); // Notifica que murió
+            GameManager.Instance.PlayerDied();
         }
     }
 
-    // Método para usar maná
     public virtual void UseMana(float amount)
     {
         currentMana -= amount;
         if (currentMana < 0)
             currentMana = 0;
+    }
+
+    // Método con parámetro y retorno: calcula distancia a otro objeto
+    public float CalcularDistancia(Vector3 otro)
+    {
+        return Vector3.Distance(transform.position, otro);
     }
 }

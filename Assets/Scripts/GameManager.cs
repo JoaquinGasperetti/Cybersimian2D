@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton pattern para asegurar solo una instancia
+        // Singleton para que haya una sola instancia
         if (Instance == null)
         {
             Instance = this;
@@ -24,18 +24,18 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        PlayerManager.OnPlayerDead += PlayerDied;
         UIManager.Instance.UpdateLives(playerLives);
         UIManager.Instance.UpdateScore(score);
     }
 
-    // Llamar cuando el jugador muere
+    // Se llama cuando el jugador muere
     public void PlayerDied()
     {
         playerLives--;
         UIManager.Instance.UpdateLives(playerLives);
         if (playerLives > 0)
         {
-            // Reinicia el nivel actual
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         else
@@ -48,14 +48,11 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         UIManager.Instance.UpdateScore(score);
-        // Aquí puedes actualizar la UI
     }
 
     private void GameOver()
     {
-        // Aquí puedes mostrar la pantalla de Game Over o reiniciar el juego
         Debug.Log("Game Over");
-        // Reinicia el juego (opcional)
         playerLives = 3;
         score = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
