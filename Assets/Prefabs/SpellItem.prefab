@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5885121771649909146
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 459953410460826863, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02055768
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585212059588257499, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282963034339781098, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_Name
+      value: SpellItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670047411578127922, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670047411578127922, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9972117
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670047411578127922, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3282963034339781098, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 352981693382083644}
+    - targetCorrespondingSourceObject: {fileID: 4385722014122928401, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7775285584675484646}
+  m_SourcePrefab: {fileID: 100100000, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+--- !u!1 &7886104202914834571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4385722014122928401, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+  m_PrefabInstance: {fileID: 5885121771649909146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7775285584675484646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7886104202914834571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5c5ae978ebd684899c4f5105f9a8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellToUnlock:
+    nombre: 
+    manaCost: 0
+    projectilePrefab: {fileID: 0}
+    damage: 10
+--- !u!1 &8945075123133868144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3282963034339781098, guid: 49e8331728d6e08439bf37c3b69af77b, type: 3}
+  m_PrefabInstance: {fileID: 5885121771649909146}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &352981693382083644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945075123133868144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5c5ae978ebd684899c4f5105f9a8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellToUnlock:
+    nombre: FireBall
+    manaCost: 15
+    projectilePrefab: {fileID: 1279950616866335185, guid: 5bade15a8de683c459be7874390ff171, type: 3}
+    damage: 10
