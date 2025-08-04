@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     // Cargar el primer nivel del juego
     public void Jugar()
     {
-        SceneManager.LoadScene("Nivel1");
+        SceneManager.LoadScene("TutorialGod");
     }
 
     // Salir del juego
