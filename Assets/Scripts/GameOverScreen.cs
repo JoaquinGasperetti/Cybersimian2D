@@ -9,7 +9,7 @@ public class GameOverScreen : MonoBehaviour
         SceneManager.LoadScene("MenuPrincipal");
     }
 
-    // Reiniciar el nivel actual
+    // Reiniciar el nivel actual.
     public void Reintentar()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
