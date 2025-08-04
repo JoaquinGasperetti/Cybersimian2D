@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c9d312c77474c443adfeb8d0e34d30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaAmount: 15
+  manaAmount: 30
 --- !u!1 &4385722014122928401
 GameObject:
   m_ObjectHideFlags: 0

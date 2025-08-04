@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
         PlayerManager.OnPlayerDead -= PlayerDied;
     }
 
+    void OnDestroy()
+    {
+        PlayerManager.OnPlayerDead -= PlayerDied;
+    }
+
     void Start()
     {
         UIManager.Instance.UpdateLives(playerLives);
@@ -68,6 +73,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         playerLives = 3;
         score = 0;
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("GameOver");
     }
 }

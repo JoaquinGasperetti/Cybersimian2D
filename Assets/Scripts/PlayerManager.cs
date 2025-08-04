@@ -95,7 +95,6 @@ public class PlayerManager : MonoBehaviour, IDamageable
         {
             currentHealth = 0;
             OnPlayerDead?.Invoke();
-            GameManager.Instance.PlayerDied();
         }
     }
 
@@ -104,6 +103,8 @@ public class PlayerManager : MonoBehaviour, IDamageable
         currentMana -= amount;
         if (currentMana < 0)
             currentMana = 0;
+
+        UIManager.Instance.UpdateMana(currentMana, maxMana);
     }
 
     // Método para sumar puntaje, usando el GameManager

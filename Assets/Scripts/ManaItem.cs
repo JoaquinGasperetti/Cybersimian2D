@@ -12,6 +12,7 @@ public class ManaItem : MonoBehaviour, ICollectible
         if (player != null)
         {
             player.currentMana = Mathf.Min(player.currentMana + manaAmount, player.maxMana);
+            UIManager.Instance.UpdateMana(player.currentMana, player.maxMana); // Actualiza el texto de mana
         }
         Destroy(gameObject);
     }
