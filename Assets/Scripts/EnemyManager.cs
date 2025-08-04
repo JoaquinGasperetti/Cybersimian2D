@@ -1,6 +1,8 @@
 using System.Linq;
 using UnityEngine;
 
+// Busca todos los enemigos en la escena.
+// Dibuja una línea al enemigo más cercano al jugador.
 public class EnemyManager : MonoBehaviour
 {
     private EnemyBase[] enemigos;
@@ -15,11 +17,15 @@ public class EnemyManager : MonoBehaviour
     {
         if (enemigos.Length > 0)
         {
-            var ordenados = enemigos.OrderBy(e => Vector3.Distance(e.transform.position, player.position)).ToList();
-            var masCercano = ordenados.FirstOrDefault();
-            if (masCercano != null)
+            var vivos = enemigos.Where(e => e != null).ToList();
+            if (vivos.Count > 0)
             {
-                Debug.DrawLine(masCercano.transform.position, player.position, Color.red);
+                var ordenados = vivos.OrderBy(e => Vector3.Distance(e.transform.position, player.position)).ToList();
+                var masCercano = ordenados.FirstOrDefault();
+                if (masCercano != null)
+                {
+                    Debug.DrawLine(masCercano.transform.position, player.position, Color.red);
+                }
             }
         }
     }

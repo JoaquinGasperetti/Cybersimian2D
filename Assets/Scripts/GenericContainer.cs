@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 
+// Guarda una lista de objetos genéricos.
+// Permite agregar y obtener esos objetos.
 public class GenericContainer<T>
 {
     private List<T> items = new List<T>();

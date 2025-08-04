@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
 
+// Controla al jugador: vida, mana, movimiento y salto.
+// Recibe daño al chocar con enemigos.
+// Si la vida llega a cero, avisa que el jugador murió.
 public class PlayerManager : MonoBehaviour, IDamageable
 {
     [Header("Atributos")]
@@ -67,6 +70,10 @@ public class PlayerManager : MonoBehaviour, IDamageable
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+        }
+        else if (collision.gameObject.CompareTag("Enemy"))
+        {
+        TakeDamage(10f);
         }
     }
 

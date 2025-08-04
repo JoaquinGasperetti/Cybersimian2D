@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;
 
+// Muestra las vidas y el puntaje en pantalla.
+// Actualiza los textos cuando cambian vidas o puntaje.
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;

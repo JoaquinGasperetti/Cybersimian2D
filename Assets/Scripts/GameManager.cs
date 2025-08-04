@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Controla las vidas y el puntaje del jugador.
+// Reinicia el nivel si el jugador muere.
+// Si se acaban las vidas, reinicia el juego.
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
@@ -22,9 +25,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Start()
+    void OnEnable()
     {
         PlayerManager.OnPlayerDead += PlayerDied;
+    }
+
+    void OnDisable()
+    {
+        PlayerManager.OnPlayerDead -= PlayerDied;
+    }
+
+    void Start()
+    {
         UIManager.Instance.UpdateLives(playerLives);
         UIManager.Instance.UpdateScore(score);
     }
@@ -33,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         playerLives--;
-        UIManager.Instance.UpdateLives(playerLives);
+        //UIManager.Instance.UpdateLives(playerLives);
         if (playerLives > 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -47,7 +59,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        UIManager.Instance.UpdateScore(score);
+        //UIManager.Instance.UpdateScore(score);
     }
 
     private void GameOver()
