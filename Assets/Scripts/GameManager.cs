@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
     public void PlayerDied()
     {
         playerLives--;
-        //UIManager.Instance.UpdateLives(playerLives);
+        UIManager.Instance.UpdateLives(playerLives);
+
         if (playerLives > 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
-        //UIManager.Instance.UpdateScore(score);
+        UIManager.Instance.UpdateScore(score);
     }
 
     private void GameOver()

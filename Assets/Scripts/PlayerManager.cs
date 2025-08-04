@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour, IDamageable
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-        TakeDamage(10f);
+            TakeDamage(10f);
         }
     }
 
@@ -89,12 +89,12 @@ public class PlayerManager : MonoBehaviour, IDamageable
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        OnPlayerDamaged?.Invoke(); // Dispara el evento
+        OnPlayerDamaged?.Invoke();
 
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            OnPlayerDead?.Invoke(); // Notifica que murió
+            OnPlayerDead?.Invoke();
             GameManager.Instance.PlayerDied();
         }
     }
@@ -104,6 +104,12 @@ public class PlayerManager : MonoBehaviour, IDamageable
         currentMana -= amount;
         if (currentMana < 0)
             currentMana = 0;
+    }
+
+    // Método para sumar puntaje, usando el GameManager
+    public void AddScore(int amount)
+    {
+        GameManager.Instance.AddScore(amount);
     }
 
     // Método con parámetro y retorno: calcula distancia a otro objeto
