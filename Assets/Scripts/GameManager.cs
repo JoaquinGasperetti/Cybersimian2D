@@ -68,6 +68,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         playerLives = 3;
         score = 0;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("Menu");
     }
 }
